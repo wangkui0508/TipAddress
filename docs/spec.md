@@ -66,3 +66,5 @@ Please note that tip addresses are determined by a block chain's history. What's
 
 How are such tip addresses used? If you want to get donations or tips from others, you can include your tip address in a tweet or a hash tag (something like #SupportAlice-BCH礷䰱㗎肵). Other people retweet your tweet or include this hash tag inside their tweets, such that more and more people can see your tip address and your story, among whom some generous persons will eventually send BCH to your tip address.
 
+A browser plugin can help your generate and "register" tip addresses by sending transactions. It can also identify the tip addresses in web pages such that you can easily donate BCH to these addresses by a single click.
+
