@@ -4,9 +4,9 @@ Sometimes we want to share a bitcoin cash's address on social media (twitter, re
 
 If the address is too long, it will hurt user experience, since a tweet is only 140 characters.
 
-Here we describe a new address format named TipAddr, which is as short as six Unicode characters: "BCH〇〇〇〇"，where "〇〇〇〇" are place holders for four Chinese characters.
+Here we describe a new address format named TipAddr, which is as short as six Chinese characters: "BCH〇〇〇〇"，where "〇〇〇〇" are place holders for four Chinese characters.
 
-To generate such an address, we need to convert an active account which ever had some event on bitcoin cash, into a 48-bit short id. By scanning all the bitcoin cash's historical transactions, we can generate a dictionary mapping from 48-bit short ids to P2PKH addresses. The pesudo code is as follow:
+To generate such an address, we need to convert an active account which ever had some event on bitcoin cash, into a 48-bit short id. By scanning all the Bitcoin Cash's historical transactions, we can generate a dictionary mapping from 48-bit short ids to P2PKH addresses. The pesudo code is as follow:
 
 ```python
 
@@ -28,7 +28,7 @@ for block in all_blocks:
 
 ```
 
-A 48-bit short id can be converted to four Unicode characters, using following algorithm:
+A 48-bit short id can be converted to four Chinese characters, using following algorithm:
 
 ```javascript
 function i2char(i) {
@@ -58,11 +58,11 @@ function short_id_to_tip_address(i) {
 }
 ```
 
-Each character contains 12 bits of payload and 3 bits of checksum. Mixing of payload and checksum makes it very hard to generate vanity addresses which has understandable meaning in Chinese.
+Each character contains 12 bits of payload and 3 bits of checksum. Mixing of payload and checksum makes it very hard to generate vanity addresses which are meaningful text in Chinese.
 
 For example, if the short id is 107074494162278, then the tip address would be "BCH礷䰱㗎肵".
 
-Please note that tip addresses are determined by a block chain's historical transactions. What's why we must keep the "BCH" prefix. On Bitcoin or Bitcoin SV, "礷䰱㗎肵" may correspond to a 20-byte P2PKH address which is different from the one on Bitcoin Cash. And if a P2PKH address has never occured in block chain's history, it has no corresponding tip address at all.
+Please note that tip addresses are determined by a block chain's history. What's why we must keep the "BCH" prefix. On Bitcoin or Bitcoin SV, "礷䰱㗎肵" may correspond to a 20-byte P2PKH address which is different from the one on Bitcoin Cash. And if a P2PKH address has never occured in block chain's history, it has no corresponding tip address at all.
 
 How are such tip addresses used? If you want to get donations or tips from others, you can include your tip address in a tweet or a hash tag (something like #SupportAlice-BCH礷䰱㗎肵). Other people retweet your tweet or include this hash tag inside their tweets, such that more and more people can see your tip address and your story, among whom some generous persons will eventually send BCH to your tip address.
 
